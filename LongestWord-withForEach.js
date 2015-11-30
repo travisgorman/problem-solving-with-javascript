@@ -3,7 +3,7 @@ function LongestWord(str){
 
 	arr.forEach(word =>
 	  longest = (word.length > longest.length) ?
-        word : longest);
+            word : longest);
 	
 	return longest;
 }
