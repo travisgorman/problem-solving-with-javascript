@@ -1,0 +1,95 @@
+# `ArithGeo()` Three Different Solutions
+
+### With A Pattern Detection Callback Function
+
+```js
+function ArithGeo(arr){
+  function isPattern(arr, pTest){
+    var factor = 0, match = true, i;
+
+    for (i = 0; i < arr.length -1 && match; i++) {
+      if (i === 0) {
+        factor = pTest( arr[i], arr[i+1] );
+      } else if ( factor !== pTest( arr[i], arr[i+1] )) {
+        match = false
+      } };
+    return match;
+  };
+  while ( arr && arr.length > 2 ) {
+    return ( isPattern( arr, (a,b) => a - b )) ? 'Arithmetic' :
+              ( isPattern( arr, (a,b) => b/a )) ? "Geometric" : -1
+  };
+}
+```
+### What's Going on Here
+* One
+* Two
+* Three
+* Four
+___
+
+### With Reduce
+
+```js
+function ArithGeo(arr){
+  
+  function arith(arr){
+    var dif = arr[1] - arr[0];
+    return arr.reduce(( pre, cur, i, ray ) =>
+      (pre) ? (dif === ( ray[i] - ray[i-1] )) :false );
+  }
+
+  function geo(arr){
+     var div = arr[1] / arr[0];
+     return arr.reduce(( pre, cur, i, ray ) =>
+      (pre) ? (div === ( ray[i] / ray[i-1] )) :false );
+  }
+
+  return ( arith( arr)) ? "Arithmetic" :
+   ( geo( arr)) ? "Geometric" : -1;
+}
+```
+### What's Going on Here
+* One
+* Two
+* Three
+* Four
+___
+
+## With For Loops
+
+```js
+function ArithGeo(arr) {
+var dif = arr[1]-arr[0],
+div = arr[1]/arr[0], arith, geo, i;
+
+  for (i=0; i<arr.length-1; i++){
+    if (dif + arr[i] === arr[i+1]){
+      arith = true;
+    } else {
+      arith = false;
+      break;
+    }
+  }
+  for (i=0; i<arr.length-1; i++){
+    if (div * arr[i] === arr[i+2]) {
+      geo = true;
+    } else {
+      geo = false;
+    }
+  }
+  if (arith === true) {
+      return "Arithmetic";
+    } else if (geo === true) {
+      return "Geometric";
+    } else {
+      return -1;
+    }
+}
+```
+### What's Going on Here
+* One
+* Two
+* Three
+* Four
+
