@@ -19,13 +19,14 @@ function LongestWord(sen){
 ```
 
 * Using the string method `split()`, turn `sen` into an array of words by using whitespace as a separator
-* Call `split()` on `sen`, with whitespace as the separator to turn sen into an array of words.
+* Call `split()` on sen, with whitespace as the separator to turn sen into an array of words.
   - Declare variable `arr` and assign the split array of words. 
   - Declare variable `longest`: an empty string. 
 * Call `forEach()` on `arr` taking each `word` and
   -  when the `word` is longer than `longest` 
-  -  `longest` equals that word. 
+  -  `longest` equals that word, 
   -  each word is assigned to `longest` until it's replaced by a longer word
   -  When there are no more words -- if the current word isn't longer than `longest`
   -  then `longest` holds the longest word
+  -  It also holds the *first* longest word, since a word of equal length wouldn't replace it. 
 * Return `longest`
